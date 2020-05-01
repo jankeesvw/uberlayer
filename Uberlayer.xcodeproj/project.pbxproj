@@ -493,7 +493,7 @@
 				ORGANIZATIONNAME = "Base 42, Freelance developer";
 				TargetAttributes = {
 					F40C1AA514E840FD000C70F9 = {
-						DevelopmentTeam = D7UN7NVW33;
+						DevelopmentTeam = B3ZNNNUCS3;
 					};
 				};
 			};
@@ -502,6 +502,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = F40C1A9B14E840FD000C70F9;
@@ -698,8 +699,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Uberlayer/Uberlayer.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = D7UN7NVW33;
+				DEVELOPMENT_TEAM = B3ZNNNUCS3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Uberlayer/Uberlayer-Prefix.pch";
 				INFOPLIST_FILE = "Uberlayer/Uberlayer-Info.plist";
@@ -714,8 +716,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Uberlayer/Uberlayer.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = D7UN7NVW33;
+				DEVELOPMENT_TEAM = B3ZNNNUCS3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Uberlayer/Uberlayer-Prefix.pch";
 				INFOPLIST_FILE = "Uberlayer/Uberlayer-Info.plist";
