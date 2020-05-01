@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ULWelcomeWindowController">
+            <connections>
+                <outlet property="showWindowOnLaunchCheckbox" destination="35" id="76"/>
+                <outlet property="window" destination="3" id="20"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Welcome to Uberlayer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="3" customClass="ULMoveableWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="587" height="581"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="4" customClass="ULMouseDownCanMoveWindowImageView">
+                <rect key="frame" x="0.0" y="0.0" width="587" height="581"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView id="6" customClass="ULMouseDownCanMoveWindowImageView">
+                        <rect key="frame" x="14" y="156" width="410" height="270"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="tekst" id="7"/>
+                    </imageView>
+                    <imageView id="V2U-bW-sOQ" customClass="ULMouseDownCanMoveWindowImageView">
+                        <rect key="frame" x="36" y="151" width="35" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="checkbox" id="3xI-lA-S2i"/>
+                    </imageView>
+                    <imageView id="E3n-gG-NfI" customClass="ULMouseDownCanMoveWindowImageView">
+                        <rect key="frame" x="45" y="461" width="161" height="84"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="logo" id="8hp-ds-8lz"/>
+                    </imageView>
+                    <button focusRingType="exterior" id="21" userLabel="start with will it fit">
+                        <rect key="frame" x="234" y="0.0" width="274" height="140"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="open-button-up" imagePosition="overlaps" alignment="center" alternateImage="open-button-down" focusRingType="exterior" inset="2" id="22">
+                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didClickStartApplication:" target="-2" id="75"/>
+                        </connections>
+                    </button>
+                    <button focusRingType="none" id="35">
+                        <rect key="frame" x="49" y="155" width="194" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="left" alignment="left" alternateImage="checkmark" state="on" focusRingType="none" inset="2" id="36">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didClickCheckbox:" target="-2" id="74"/>
+                        </connections>
+                    </button>
+                    <imageView id="I6V-Iw-ZfN" customClass="ULMouseDownCanMoveWindowImageView">
+                        <rect key="frame" x="285" y="127" width="410" height="334"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="shortcuts" id="kkt-xk-vTW"/>
+                    </imageView>
+                    <imageView id="t2i-mh-vzQ" customClass="ULMouseDownCanMoveWindowImageView">
+                        <rect key="frame" x="-33" y="537" width="309" height="84"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="bar-oranje" id="Svj-bP-26p"/>
+                    </imageView>
+                    <imageView id="c9A-O7-dqH" customClass="ULMouseDownCanMoveWindowImageView">
+                        <rect key="frame" x="244" y="537" width="343" height="84"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="bar-zwawrt" id="8h8-iM-DCE"/>
+                    </imageView>
+                </subviews>
+            </view>
+        </window>
+    </objects>
+    <resources>
+        <image name="bar-oranje" width="244" height="4"/>
+        <image name="bar-zwawrt" width="344" height="4"/>
+        <image name="checkbox" width="24" height="24"/>
+        <image name="checkmark" width="12" height="9"/>
+        <image name="logo" width="90" height="80"/>
+        <image name="open-button-down" width="201" height="47"/>
+        <image name="open-button-up" width="201" height="47"/>
+        <image name="shortcuts" width="114" height="283"/>
+        <image name="tekst" width="355" height="259"/>
+    </resources>
+</document>

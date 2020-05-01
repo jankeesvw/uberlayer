@@ -1,0 +1,25 @@
+
+# osx noise
+.DS_Store
+
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+xcuserdata
+
+# auto git version noise
+InfoPlist.h
+
+# osx noise
+.DS_Store
+
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+xcuserdata
+
+# auto git version noise
+InfoPlist.h
+.idea/

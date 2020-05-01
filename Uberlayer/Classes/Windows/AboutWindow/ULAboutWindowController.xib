@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ULAboutWindowController">
+            <connections>
+                <outlet property="buildNumberTextField" destination="39" id="42"/>
+                <outlet property="shortVersion" destination="37" id="41"/>
+                <outlet property="shortVersionTextField" destination="37" id="43"/>
+                <outlet property="window" destination="1" id="3"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="About Uberlayer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="1">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="318" height="182"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="2">
+                <rect key="frame" x="0.0" y="0.0" width="318" height="182"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView id="5" userLabel="background">
+                        <rect key="frame" x="160" y="21" width="140" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" image="broughttoyou" id="6"/>
+                    </imageView>
+                    <imageView id="6kv-2A-owB" userLabel="background">
+                        <rect key="frame" x="34" y="67" width="103" height="82"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" image="logo-about" id="MMw-IR-Dzr"/>
+                    </imageView>
+                    <imageView id="y4m-RO-M1u" userLabel="background">
+                        <rect key="frame" x="220" y="58" width="267" height="124"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" image="vaandel" id="mC2-s9-w1H"/>
+                    </imageView>
+                    <textField autoresizesSubviews="NO" verticalHuggingPriority="750" id="37" userLabel="version">
+                        <rect key="frame" x="219" y="130" width="91" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="1.4.1" id="38">
+                            <font key="font" metaFont="system" size="23"/>
+                            <color key="textColor" red="0.21176472306251526" green="0.21176472306251526" blue="0.21176472306251526" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField autoresizesSubviews="NO" verticalHuggingPriority="750" id="39" userLabel="build nr">
+                        <rect key="frame" x="220" y="114" width="91" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="(BUILD xxx)" usesSingleLineMode="YES" id="40">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" red="0.21176472306251526" green="0.21176472306251526" blue="0.21176472306251526" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.051451821830000001" green="0.083443378420000006" blue="0.13443863119999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textFieldCell>
+                    </textField>
+                    <button id="B0t-Ah-fdS">
+                        <rect key="frame" x="149" y="21" width="135" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" imagePosition="overlaps" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="Vve-wc-2yf">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="systemBold" size="12"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didClickTwelveTwenty:" target="-2" id="Azi-1Z-NRW"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <animations/>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="4"/>
+            </connections>
+        </window>
+    </objects>
+    <resources>
+        <image name="broughttoyou" width="131" height="27"/>
+        <image name="logo-about" width="94" height="83"/>
+        <image name="vaandel" width="88" height="105"/>
+    </resources>
+</document>

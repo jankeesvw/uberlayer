@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="494" id="495"/>
+                <outlet property="dockMenu" destination="536" id="540"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="494" customClass="ULAppDelegate"/>
+        <customObject id="420" customClass="NSFontManager"/>
+        <menu title="AMainMenu" systemMenu="main" id="29">
+            <items>
+                <menuItem title="Uberlayer" id="56">
+                    <menu key="submenu" title="Uberlayer" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="Show Welcome Screen" id="693">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didClickOpenWelcomeScreen:" target="494" id="694"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="About Uberlayer" id="688">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didClickAbout:" target="494" id="689"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="704"/>
+                            <menuItem title="Hide Uberlayer" keyEquivalent="h" id="702">
+                                <connections>
+                                    <action selector="didClickHide:" target="494" id="703"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Quit Uberlayer" keyEquivalent="q" id="136">
+                                <connections>
+                                    <action selector="terminate:" target="-3" id="449"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="805">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="File" id="806">
+                        <items>
+                            <menuItem title="Open Image…" keyEquivalent="o" id="808">
+                                <connections>
+                                    <action selector="didClickOpenDocument:" target="494" id="813"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste From Clipboard" keyEquivalent="v" id="810">
+                                <connections>
+                                    <action selector="didClickPaste:" target="494" id="811"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Close Image" keyEquivalent="w" id="814">
+                                <connections>
+                                    <action selector="didClickClose:" target="494" id="815"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Layer" id="648">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Layer" systemMenu="apple" id="649">
+                        <items>
+                            <menuItem title="Toggle Locking" keyEquivalent="l" id="658">
+                                <connections>
+                                    <action selector="didClickToggleLocking:" target="494" id="672"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="659"/>
+                            <menuItem title="Zoom" id="777">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Zoom" id="778">
+                                    <items>
+                                        <menuItem title="50%" keyEquivalent="1" id="781">
+                                            <connections>
+                                                <action selector="didClickHalfSize:" target="494" id="783"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="100%" keyEquivalent="2" id="779">
+                                            <connections>
+                                                <action selector="didClickActualSize:" target="494" id="784"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="200%" keyEquivalent="3" id="782">
+                                            <connections>
+                                                <action selector="didClickDoubleSize:" target="494" id="785"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="780"/>
+                            <menuItem title="Less Transparent" keyEquivalent="" id="653">
+                                <connections>
+                                    <action selector="didClickLessTransparent:" target="494" id="676"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="More Transparent" keyEquivalent="" id="660">
+                                <connections>
+                                    <action selector="didClickMoreTransparent:" target="494" id="666"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Toggle Visibility" keyEquivalent="0" id="724">
+                                <connections>
+                                    <action selector="didClickToggleVisibility:" target="494" id="729"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Set Visibility" id="879">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Set Visibility" id="880">
+                                    <items>
+                                        <menuItem title="Transparent" keyEquivalent="0" id="883">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="didSetTransparent:" target="494" id="902"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="10%" keyEquivalent="1" id="881">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="899"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="20%" keyEquivalent="2" id="882">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="892"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="30%" keyEquivalent="3" id="884">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="897"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="40%" keyEquivalent="4" id="885">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="896"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="50%" keyEquivalent="5" id="886">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="895"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="60%" keyEquivalent="6" id="887">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="901"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="70%" keyEquivalent="7" id="888">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="900"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="80%" keyEquivalent="8" id="889">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="894"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="90%" keyEquivalent="9" id="890">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="893"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Opaque" keyEquivalent="0" id="891">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="didSetOpacity:" target="494" id="898"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="661"/>
+                            <menuItem title="Move Left" keyEquivalent="" id="654">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didClickMoveLeft:" target="494" id="708"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Move Right" keyEquivalent="" id="662">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didClickMoveRight:" target="494" id="711"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Move Up" keyEquivalent="" id="663">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didClickMoveUp:" target="494" id="674"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Move Down" keyEquivalent="" id="664">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didClickMoveDown:" target="494" id="669"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <menu id="536">
+            <items>
+                <menuItem title="Open Image…" keyEquivalent="o" id="866">
+                    <connections>
+                        <action selector="didClickOpenDocument:" target="494" id="869"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Paste From Clipboard" keyEquivalent="v" id="867">
+                    <connections>
+                        <action selector="didClickPaste:" target="494" id="870"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Close Image" keyEquivalent="w" id="868">
+                    <connections>
+                        <action selector="didClickClose:" target="494" id="871"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="817"/>
+                <menuItem title="Toggle Locking" keyEquivalent="l" id="873">
+                    <connections>
+                        <action selector="didClickToggleLocking:" target="494" id="874"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="875"/>
+                <menuItem title="Zoom" id="818">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Zoom" id="840">
+                        <items>
+                            <menuItem title="50%" keyEquivalent="1" id="842">
+                                <connections>
+                                    <action selector="didClickHalfSize:" target="494" id="845"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="100%" keyEquivalent="2" id="843">
+                                <connections>
+                                    <action selector="didClickActualSize:" target="494" id="860"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="200%" keyEquivalent="3" id="841">
+                                <connections>
+                                    <action selector="didClickDoubleSize:" target="494" id="850"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="819"/>
+                <menuItem title="Less Transparent" keyEquivalent="" id="820">
+                    <connections>
+                        <action selector="didClickLessTransparent:" target="494" id="853"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="More Transparent" keyEquivalent="" id="821">
+                    <connections>
+                        <action selector="didClickMoreTransparent:" target="494" id="854"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Toggle Visibility" keyEquivalent="0" id="822">
+                    <connections>
+                        <action selector="didClickToggleVisibility:" target="494" id="857"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Set Visibility" id="823">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Set Visibility" id="829">
+                        <items>
+                            <menuItem title="Transparent" keyEquivalent="0" id="838">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                <connections>
+                                    <action selector="didSetTransparent:" target="494" id="878"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="10%" keyEquivalent="1" id="876">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="877"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="20%" keyEquivalent="2" id="839">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="844"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="30%" keyEquivalent="3" id="837">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="856"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="40%" keyEquivalent="4" id="836">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="858"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="50%" keyEquivalent="5" id="835">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="863"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="60%" keyEquivalent="6" id="834">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="847"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="70%" keyEquivalent="7" id="833">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="861"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="80%" keyEquivalent="8" id="832">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="862"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="90%" keyEquivalent="9" id="831">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="864"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Opaque" keyEquivalent="0" id="830">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="didSetOpacity:" target="494" id="855"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="824"/>
+                <menuItem title="Move Left" keyEquivalent="" id="825">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="didClickMoveLeft:" target="494" id="852"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Move Right" keyEquivalent="" id="826">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="didClickMoveRight:" target="494" id="849"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Move Up" keyEquivalent="" id="827">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="didClickMoveUp:" target="494" id="846"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Move Down" keyEquivalent="" id="828">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="didClickMoveDown:" target="494" id="848"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="865"/>
+                <menuItem title="Hide Uberlayer" keyEquivalent="h" id="705">
+                    <connections>
+                        <action selector="didClickHide:" target="494" id="706"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+    </objects>
+</document>
