@@ -4,6 +4,10 @@
 
 Uberlayer was made in 2012 by [Eric-Paul Lecluse](https://github.com/epologee/), [Timo Kuilder](https://timokuilder.com/) and [Jankees van Woezik](https://jankeesvw.com/). We had it on the AppStore, now we decided to open source it here.
 
+## Download
+
+Get the latest version from the [releases page](https://github.com/jankeesvw/uberlayer/releases).
+
 ## What is Uberlayer
 
 With  the Uberlayer app you can put floating images on top of your computer  screen. Maybe you want to proof a design to the pixel, watermark a  presentation or always have that special picture of your mother on top?
