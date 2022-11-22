@@ -423,20 +423,28 @@
     [self setAlphaWindows:0];
 }
 
-- (IBAction)didClickHalfSize:(id)sender
-{
+// necessary screen resolutions
+// throw into haskell interpreter like ghc's ghci
+// let pointAccurate imageScale = 1/imageScale
+// let pixelAccurate imageScale screenScale simScale = (simScale/screenScale)/imageScale
+// let necessaryResolutions = nub . sort . concat $ [ [pointAccurate imageScale, pixelAccurate imageScale screenScale simScale] | imageScale <- [1,2,3], screenScale <- [1,2], simScale <- [2,3]]
+// necessaryResolutions
+// [0.3333333333333333,0.5,0.6666666666666666,0.75,1.0,1.5,2.0,3.0]
 
-    [self setImageSize:NSMakeSize(loadedImageSize.width / 2, loadedImageSize.height / 2)];
-}
-
-- (IBAction)didClickActualSize:(id)sender
+- (IBAction)didClickZoomLevel:(NSMenuItem *)sender
 {
-    [self setImageSize:NSMakeSize(loadedImageSize.width, loadedImageSize.height)];
-}
-
-- (IBAction)didClickDoubleSize:(id)sender
-{
-    [self setImageSize:NSMakeSize(loadedImageSize.width * 2, loadedImageSize.height * 2)];
+    NSDictionary<NSNumber *, NSNumber *> *dictionary = @{
+        @1: @(1./3.),
+        @2: @0.5,
+        @3: @(2./3.),
+        @4: @0.75,
+        @5: @1,
+        @6: @1.5,
+        @7: @2,
+        @8: @3
+    };
+    CGFloat scale = [dictionary objectForKey:@(sender.tag)].doubleValue;
+    [self setImageSize:NSMakeSize(loadedImageSize.width * scale, loadedImageSize.height * scale)];
 }
 
 - (void)setImageSize:(NSSize)size
