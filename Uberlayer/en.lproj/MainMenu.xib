@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <deployment version="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -12,7 +12,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="494" customClass="ULAppDelegate"/>
         <customObject id="420" customClass="NSFontManager"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
@@ -82,19 +82,44 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Zoom" id="778">
                                     <items>
-                                        <menuItem title="50%" keyEquivalent="1" id="781">
+                                        <menuItem title="33%" tag="1" keyEquivalent="1" id="781">
                                             <connections>
-                                                <action selector="didClickHalfSize:" target="494" id="783"/>
+                                                <action selector="didClickZoomLevel:" target="494" id="fn7-0s-o7Z"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="100%" keyEquivalent="2" id="779">
+                                        <menuItem title="50%" tag="2" keyEquivalent="2" id="779">
                                             <connections>
-                                                <action selector="didClickActualSize:" target="494" id="784"/>
+                                                <action selector="didClickZoomLevel:" target="494" id="dor-wI-zbM"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="200%" keyEquivalent="3" id="782">
+                                        <menuItem title="67%" tag="3" keyEquivalent="3" id="782">
                                             <connections>
-                                                <action selector="didClickDoubleSize:" target="494" id="785"/>
+                                                <action selector="didClickZoomLevel:" target="494" id="z76-yI-9AT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="75%" tag="4" keyEquivalent="4" id="6Yi-Sz-ftx">
+                                            <connections>
+                                                <action selector="didClickZoomLevel:" target="494" id="4eY-BT-q3Q"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="100%" tag="5" keyEquivalent="5" id="1xm-4N-e5G">
+                                            <connections>
+                                                <action selector="didClickZoomLevel:" target="494" id="s9m-KD-g4Z"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="150%" tag="6" keyEquivalent="6" id="ytv-0d-hFa">
+                                            <connections>
+                                                <action selector="didClickZoomLevel:" target="494" id="qaF-KW-zvd"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="200%" tag="7" keyEquivalent="7" id="rqM-rj-gPg">
+                                            <connections>
+                                                <action selector="didClickZoomLevel:" target="494" id="MGi-6U-Lr9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="300%" tag="8" keyEquivalent="8" id="rpl-Hz-JYX">
+                                            <connections>
+                                                <action selector="didClickZoomLevel:" target="494" id="0Zd-gX-byn"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -218,6 +243,7 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="14" y="154"/>
         </menu>
         <menu id="536">
             <items>
@@ -386,6 +412,7 @@
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="14" y="-106"/>
         </menu>
     </objects>
 </document>

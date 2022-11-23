@@ -49,14 +49,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
     [self startApplication];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename
 {
-    [self.imageWindowController.window close];
-
     NSURL *imageURL = [NSURL fileURLWithPath:filename];
     [self loadImage:imageURL];
 
@@ -140,7 +137,7 @@
 
     NSError *error;
 
-    CGSize calculatedSize = [NSImage sizeOfImageAtURL:url error:&error];
+    CGSize calculatedSize = [NSImage ptSizeOfImageAtURL:url error:&error];
 
     NSString *currentFileExtension = [[url pathExtension] lowercaseString];
     NSArray *regularImageExtensions = [NSArray arrayWithObjects:@"jpg", @"jpeg", @"png", nil];
@@ -167,35 +164,38 @@
 
 - (void)showImage:(NSImage *)image
 {
-
     [self.welcomeWindowController close];
 
     NSRect oldRect = self.imageWindowController.window.frame;
-    NSSize imageSize = [image size];
-    NSRect imageFrame = NSMakeRect(0, 0, imageSize.width, imageSize.height);
+    loadedImageSize = [image size];
 
-    ULMouseDownCanMoveWindowImageView *imageView = [[ULMouseDownCanMoveWindowImageView alloc] initWithFrame:imageFrame];
+    ULMouseDownCanMoveWindowImageView *imageView = [[ULMouseDownCanMoveWindowImageView alloc] initWithFrame:NSMakeRect(0, 0, loadedImageSize.width, loadedImageSize.height)];
     imageView.image = image;
 
+    [self.imageWindowController.window close];
     self.imageWindowController = [[ULImageWindowController alloc] initWithWindowNibName:@"ULImageWindowController"];
 
     [self.imageWindowController.window.contentView addSubview:imageView];
 
-    NSRect newFrame = NSMakeRect(oldRect.origin.x, oldRect.origin.y + (oldRect.size.height - imageFrame.size.height), imageFrame.size.width, imageFrame.size.height);
+    NSRect newFrame = NSMakeRect(oldRect.origin.x,
+                                 oldRect.origin.y + (oldRect.size.height - loadedImageSize.height),
+                                 loadedImageSize.width,
+                                 loadedImageSize.height
+                                 );
 
-    loadedImageSize = newFrame.size;
-
-    // if a window less than 0 on the x scale, put in back on the screen
-    if (!NSPointInRect(newFrame.origin, self.imageWindowController.window.screen.frame))
+    // if a window is outside visible range, put in back on the screen
+    // this happens if the top left corner of the previous window is moved off screen
+    // and the new window is smaller than the old window
+    if (newFrame.origin.x + newFrame.size.width < 10)
     {
-        newFrame.origin.x = 1;
+        newFrame.origin.x = 0;
     }
 
     [self.imageWindowController.window setFrame:newFrame display:YES];
 
 
     // if this is the first window, put it in the center
-    if ((oldRect.origin.x == 0.0 && oldRect.origin.y == 0))
+    if (oldRect.origin.x == 0.0 && oldRect.origin.y == 0 && oldRect.size.width == 0 && oldRect.size.height == 0)
     {
         [self.imageWindowController.window center];
     }
@@ -423,20 +423,28 @@
     [self setAlphaWindows:0];
 }
 
-- (IBAction)didClickHalfSize:(id)sender
-{
+// necessary screen resolutions
+// throw into haskell interpreter like ghc's ghci
+// let pointAccurate imageScale = 1/imageScale
+// let pixelAccurate imageScale screenScale simScale = (simScale/screenScale)/imageScale
+// let necessaryResolutions = nub . sort . concat $ [ [pointAccurate imageScale, pixelAccurate imageScale screenScale simScale] | imageScale <- [1,2,3], screenScale <- [1,2], simScale <- [2,3]]
+// necessaryResolutions
+// [0.3333333333333333,0.5,0.6666666666666666,0.75,1.0,1.5,2.0,3.0]
 
-    [self setImageSize:NSMakeSize(loadedImageSize.width / 2, loadedImageSize.height / 2)];
-}
-
-- (IBAction)didClickActualSize:(id)sender
+- (IBAction)didClickZoomLevel:(NSMenuItem *)sender
 {
-    [self setImageSize:NSMakeSize(loadedImageSize.width, loadedImageSize.height)];
-}
-
-- (IBAction)didClickDoubleSize:(id)sender
-{
-    [self setImageSize:NSMakeSize(loadedImageSize.width * 2, loadedImageSize.height * 2)];
+    NSDictionary<NSNumber *, NSNumber *> *dictionary = @{
+        @1: @(1./3.),
+        @2: @0.5,
+        @3: @(2./3.),
+        @4: @0.75,
+        @5: @1,
+        @6: @1.5,
+        @7: @2,
+        @8: @3
+    };
+    CGFloat scale = [dictionary objectForKey:@(sender.tag)].doubleValue;
+    [self setImageSize:NSMakeSize(loadedImageSize.width * scale, loadedImageSize.height * scale)];
 }
 
 - (void)setImageSize:(NSSize)size

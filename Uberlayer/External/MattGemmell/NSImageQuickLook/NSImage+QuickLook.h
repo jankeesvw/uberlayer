@@ -12,6 +12,6 @@
 
 
 + (NSImage *)imageWithPreviewOfFileAtPath:(NSString *)path ofSize:(NSSize)size asIcon:(BOOL)icon;
-+ (CGSize)sizeOfImageAtURL:(NSURL *)fileURL error:(NSError **)error;
++ (CGSize)ptSizeOfImageAtURL:(NSURL *)fileURL error:(NSError **)error;
 
 @end
