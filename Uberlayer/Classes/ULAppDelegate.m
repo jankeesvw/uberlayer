@@ -195,7 +195,7 @@
 
 
     // if this is the first window, put it in the center
-    if ((oldRect.origin.x == 0.0 && oldRect.origin.y == 0))
+    if (oldRect.origin.x == 0.0 && oldRect.origin.y == 0 && oldRect.size.width == 0 && oldRect.size.height == 0)
     {
         [self.imageWindowController.window center];
     }
