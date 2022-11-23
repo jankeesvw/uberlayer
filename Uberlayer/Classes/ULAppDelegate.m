@@ -183,10 +183,12 @@
                                  loadedImageSize.height
                                  );
 
-    // if a window less than 0 on the x scale, put in back on the screen
-    if (!NSPointInRect(newFrame.origin, self.imageWindowController.window.screen.frame))
+    // if a window is outside visible range, put in back on the screen
+    // this happens if the top left corner of the previous window is moved off screen
+    // and the new window is smaller than the old window
+    if (newFrame.origin.x + newFrame.size.width < 10)
     {
-        newFrame.origin.x = 1;
+        newFrame.origin.x = 0;
     }
 
     [self.imageWindowController.window setFrame:newFrame display:YES];
