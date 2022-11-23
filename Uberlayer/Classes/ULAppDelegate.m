@@ -183,8 +183,6 @@
                                  loadedImageSize.height
                                  );
 
-    loadedImageSize = newFrame.size;
-
     // if a window less than 0 on the x scale, put in back on the screen
     if (!NSPointInRect(newFrame.origin, self.imageWindowController.window.screen.frame))
     {
