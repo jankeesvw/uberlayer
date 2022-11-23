@@ -167,10 +167,9 @@
     [self.welcomeWindowController close];
 
     NSRect oldRect = self.imageWindowController.window.frame;
-    NSSize imageSize = [image size];
-    NSRect imageFrame = NSMakeRect(0, 0, imageSize.width, imageSize.height);
+    loadedImageSize = [image size];
 
-    ULMouseDownCanMoveWindowImageView *imageView = [[ULMouseDownCanMoveWindowImageView alloc] initWithFrame:imageFrame];
+    ULMouseDownCanMoveWindowImageView *imageView = [[ULMouseDownCanMoveWindowImageView alloc] initWithFrame:NSMakeRect(0, 0, loadedImageSize.width, loadedImageSize.height)];
     imageView.image = image;
 
     [self.imageWindowController.window close];
@@ -179,9 +178,9 @@
     [self.imageWindowController.window.contentView addSubview:imageView];
 
     NSRect newFrame = NSMakeRect(oldRect.origin.x,
-                                 oldRect.origin.y + (oldRect.size.height - imageFrame.size.height),
-                                 imageFrame.size.width,
-                                 imageFrame.size.height
+                                 oldRect.origin.y + (oldRect.size.height - loadedImageSize.height),
+                                 loadedImageSize.width,
+                                 loadedImageSize.height
                                  );
 
     loadedImageSize = newFrame.size;
