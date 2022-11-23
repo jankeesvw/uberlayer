@@ -49,14 +49,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
     [self startApplication];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename
 {
-    [self.imageWindowController.window close];
-
     NSURL *imageURL = [NSURL fileURLWithPath:filename];
     [self loadImage:imageURL];
 
@@ -167,7 +164,6 @@
 
 - (void)showImage:(NSImage *)image
 {
-
     [self.welcomeWindowController close];
 
     NSRect oldRect = self.imageWindowController.window.frame;
@@ -177,11 +173,16 @@
     ULMouseDownCanMoveWindowImageView *imageView = [[ULMouseDownCanMoveWindowImageView alloc] initWithFrame:imageFrame];
     imageView.image = image;
 
+    [self.imageWindowController.window close];
     self.imageWindowController = [[ULImageWindowController alloc] initWithWindowNibName:@"ULImageWindowController"];
 
     [self.imageWindowController.window.contentView addSubview:imageView];
 
-    NSRect newFrame = NSMakeRect(oldRect.origin.x, oldRect.origin.y + (oldRect.size.height - imageFrame.size.height), imageFrame.size.width, imageFrame.size.height);
+    NSRect newFrame = NSMakeRect(oldRect.origin.x,
+                                 oldRect.origin.y + (oldRect.size.height - imageFrame.size.height),
+                                 imageFrame.size.width,
+                                 imageFrame.size.height
+                                 );
 
     loadedImageSize = newFrame.size;
 
