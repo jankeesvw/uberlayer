@@ -140,7 +140,7 @@
 
     NSError *error;
 
-    CGSize calculatedSize = [NSImage sizeOfImageAtURL:url error:&error];
+    CGSize calculatedSize = [NSImage ptSizeOfImageAtURL:url error:&error];
 
     NSString *currentFileExtension = [[url pathExtension] lowercaseString];
     NSArray *regularImageExtensions = [NSArray arrayWithObjects:@"jpg", @"jpeg", @"png", nil];

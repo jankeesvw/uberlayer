@@ -54,7 +54,7 @@
     return nil;
 }
 
-+ (CGSize)sizeOfImageAtURL:(NSURL *)fileURL error:(NSError **)error
++ (CGSize)ptSizeOfImageAtURL:(NSURL *)fileURL error:(NSError **)error
 {
     NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:(__bridge NSString *) kCGImageSourceShouldCache];
 
@@ -69,8 +69,19 @@
 
     if (imageProperties)
     {
-        CGFloat width = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth) floatValue];
-        CGFloat height = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight) floatValue];
+        CGFloat width  = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth) doubleValue];
+        CGFloat height = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight) doubleValue];
+        if (@available(macOS 10.13, *))
+        {
+            CGFloat dpiWidth  = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyDPIHeight) doubleValue];
+            CGFloat dpiHeight = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyDPIWidth) doubleValue];
+
+            if (dpiWidth >= 1. && dpiHeight >= 1.)
+            {
+                width = width * 72. / dpiWidth;
+                height = height * 72. / dpiHeight;
+            }
+        }
 
         int rotation = [(__bridge NSNumber *) CFDictionaryGetValue(imageProperties, kCGImagePropertyOrientation) intValue];
 
